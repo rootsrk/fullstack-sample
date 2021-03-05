@@ -10,24 +10,25 @@ const initDB = () => {
     port: 5432,
   });
 
-  const query = `
-    CREATE TABLE  sample (
-        email varchar,
-        firstName varchar,
-        lastName varchar,
-        age int
-    );`;
+  // const query = `
+  //   CREATE TABLE  sample (
+  //       email varchar,
+  //       firstName varchar,
+  //       lastName varchar,
+  //       age int
+  //   );`;
 
-  client.query(query, (err, res) => {
-    if (err) {
-      console.error(err);
-      return;
-    }
-    console.log('Table is successfully created');
-    client.end();
-  });
+  // client.query(query, (err, res) => {
+  //   if (err) {
+  //     console.error(err);
+  //     return;
+  //   }
+  //   console.log('Table is successfully created');
+  //   client.end();
+  // });
 
   client.connect();
+  console.log('Table is successfully created');
 };
 
 module.exports = initDB;
