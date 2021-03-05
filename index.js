@@ -5,8 +5,7 @@ const initDB = require('./initializeDB');
 
 const init = async () => {
   const server = Hapi.server({
-    port: 3000,
-    host: 'localhost',
+    port: process.env.port || 3000,
   });
   server.route({
     method: 'GET',
