@@ -7,21 +7,21 @@ const Inert = require('@hapi/inert');
 
 const init = async () => {
   const server = Hapi.server({
-    port: process.env.PORT || 8080,
+    port: process.env.PORT || 5000,
   });
 
-  await server.register(Inert);
+  initDB();
 
   server.route({
     method: 'GET',
     path: '/api',
     handler: (request, h) => {
+      console.log('here request');
       return {
         text: 'Hello You!',
       };
     },
   });
-  initDB();
 
   await server.start();
   console.log('Server running on %s', server.info.uri);
