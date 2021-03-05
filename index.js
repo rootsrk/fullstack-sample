@@ -2,14 +2,11 @@
 
 const Hapi = require('@hapi/hapi');
 const initDB = require('./initializeDB');
-const path = require('path');
-const Inert = require('@hapi/inert');
 
 const init = async () => {
   const server = Hapi.server({
     port: process.env.PORT || 5000,
   });
-
   initDB();
 
   server.route({
@@ -20,6 +17,14 @@ const init = async () => {
       return {
         text: 'Hello You!',
       };
+    },
+  });
+
+  server.route({
+    method: 'GET',
+    path: '/',
+    handler: (request, h) => {
+      h.sendFile(path.join(__dirname + '/client/public/index.html'));
     },
   });
 
