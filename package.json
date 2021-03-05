@@ -13,7 +13,7 @@
     "pg": "^8.5.1"
   },
   "scripts": {
-    "heroku-postbuild": "npm install && cd client && npm install && npm run build ",
+    "heroku-postbuild": "npm install && cd client && npm install && npm run build && node index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon index.js"
   }
